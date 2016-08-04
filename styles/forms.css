@@ -1,0 +1,15 @@
+.ng-valid[required] {
+  border-left: 5px solid #42A948; /* green */
+}
+
+.ng-invalid {
+  border-left: 5px solid #a94442; /* red */
+}
+
+.container{
+  border-left: 2px solid silver;
+}
+
+.form-group{
+  background-color: aliceblue;
+}

@@ -1,0 +1,15 @@
+<div [formGroup]="form">
+  <label [attr.for]="inElement.key">{{inElement.label}}{{inElement.required?'*':''}}</label>
+  <div [ngSwitch]="inElement.controlType">
+    <span *ngSwitchCase="'textbox'">
+      <input  *ngIf="inElement.required" [formControlName]="inElement.key"
+            [id]="inElement.key" [type]="inElement.type" required>
+      <input *ngIf="!inElement.required" [formControlName]="inElement.key"
+            [id]="inElement.key" [type]="inElement.type">
+    </span>
+    <select *ngSwitchCase="'dropdown'" [id]="inElement.key" [formControlName]="inElement.key">
+      <option *ngFor="let opt of inElement.options" [value]="opt.key">{{opt.value}}</option>
+    </select>
+  </div> 
+  <div class="errorMessage" *ngIf="!isValid">{{inElement.label}} is required</div>
+</div>
